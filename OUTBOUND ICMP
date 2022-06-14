@@ -3,9 +3,9 @@ alert any $HOME_NET any -> $EXTERNAL_NET any (msg: "[CUSTOMER-DEFINED] Outbound 
 
 ##Auto Comment: 'Outbound ICMP traffic observed from host "<ip>SRCIP</ip>" [<hn>SRCHOST</hn>] to destination "<ip>DSTIP</ip>" [<hn>DSTHOST</hn>]. A total of XXX_bytes_to_server_XXX were sent outbound, with a response length of XXX_bytes_to_client_XXX bytes. This is an informational alert being sent on behalf of your request.' 
 
-##Signature Playbook: This client has requested that we send them alerts on outbound ICMP traffic. Confirm the source and destination addresses are consistent with outbound traffic flow. 
+##Signature Playbook: 'This rule is designed to trigger on any outbound ICMP traffic. This client has specifically requested that we send them alerts on outbound ICMP traffic. Confirm the source and destination addresses are consistent with outbound traffic flow.' 
 
-##sample logs IPv4:
-##flow.json:{"timestamp":"2022-06-13T22:12:43.368487+0000","flow_id":8675309,"in_iface":"ids","event_type":"flow","src_ip":"10.0.0.1","dest_ip":"ffff:0000:0000:0000:0000:0000:0000:0000","proto":"IPv6-ICMP","icmp_type":133,"icmp_code":0,"flow":{"pkts_toserver":3,"pkts_toclient":0,"bytes_toserver":202,"bytes_toclient":0,"start":"2022-06-13T22:09:29.555141+0000","end":"2022-06-13T22:09:37.551509+0000","age":8,"state":"new","reason":"timeout","alerted":false},"host":"example.host"}
 ##sample logs IPv6:
+##flow.json:{"timestamp":"2022-06-13T22:12:43.368487+0000","flow_id":8675309,"in_iface":"ids","event_type":"flow","src_ip":"10.0.0.1","dest_ip":"ffff:0000:0000:0000:0000:0000:0000:0000","proto":"IPv6-ICMP","icmp_type":133,"icmp_code":0,"flow":{"pkts_toserver":3,"pkts_toclient":0,"bytes_toserver":202,"bytes_toclient":0,"start":"2022-06-13T22:09:29.555141+0000","end":"2022-06-13T22:09:37.551509+0000","age":8,"state":"new","reason":"timeout","alerted":false},"host":"example.host"}
+##sample logs IPv4:
 ##flow.json:{"timestamp":"2022-06-13T21:52:54.103764+0000","flow_id":8675309,"in_iface":"ids","event_type":"flow","src_ip":"10.0.0.101","dest_ip":"8.8.8.8","proto":"ICMP","icmp_type":8,"icmp_code":0,"flow":{"pkts_toserver":5,"pkts_toclient":0,"bytes_toserver":490,"bytes_toclient":0,"start":"2022-06-13T21:50:01.217539+0000","end":"2022-06-13T21:50:05.309996+0000","age":4,"state":"new","reason":"timeout","alerted":true},"host":"example.host"}
